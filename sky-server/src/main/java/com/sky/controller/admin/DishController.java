@@ -76,4 +76,17 @@ public class DishController {
         dishService.delete(ids);
         return Result.success();
     }
+
+    /**
+     * 菜品起售、停售
+     *
+     * @param status
+     * @return
+     */
+    @PostMapping
+    @ApiOperation("菜品起售，停售")
+    public Result<String> status(@PathVariable Integer status,@RequestParam Long id){
+        dishService.dishStatus(status,id);
+        return Result.success();
+    }
 }
